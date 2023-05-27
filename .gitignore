@@ -1,3 +1,4 @@
 src.egg-info
 brainhack_project.code-workspace
 .vscode
+envelope_signal_bandpassed.npz
