@@ -2,9 +2,20 @@ import numpy as np
 from scipy.linalg import eigh
 from timeit import default_timer
 
+
+"""
+The two functions, train_cca and apply_cca, perform Correlated Component Analysis (CCA) on a provided dataset.
+
+Correlated Component Analysis (CCA) is a multivariate statistical method that identifies and quantifies the linear correlations between two sets of multidimensional variables. It's used to find shared patterns between two sets that are maximally correlated.
+
+The dataset is a dictionary where each key represents a different condition or experiment, and each value is a three-dimensional numpy array with the dimensions (subjects, channels, samples). The number of channels must be the same for all conditions. 
+"""
+
 # Shoutout and a big thanks to https://github.com/pa-ak/ISC-Inter-Subject-Correlations
 def train_cca(data):
-    """Run Correlated Component Analysis on your training data.
+    """
+    Performs the training phase of CCA
+    Run Correlated Component Analysis on your training data.
     Parameters:
     ----------
     data : dict
