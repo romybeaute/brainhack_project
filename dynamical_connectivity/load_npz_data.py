@@ -20,7 +20,7 @@ def load_data():
     print('HOMEDIR: ',HOMEDIR)
     npz_osf_filepath = f"{HOMEDIR}/src_data/src_data_osf" #path to NPZ (Numpy Zip) file format
     envelope_signal_files = [item for item in os.listdir(npz_osf_filepath)] #get the 2 files of envelope_signal
-    print(envelope_signal_files)
+    print('Loading data from {} files : {}'.format(len(envelope_signal_files),envelope_signal_files))
 
     video_watching_dataset = {}  # Dictionary to store the data from both .npz files
     video_watching_files = {} # Dictionary to store the data from both .npz files
@@ -31,12 +31,12 @@ def load_data():
 
         file_data = {}  # Dictionary to store data for each file
         for key in data.keys():
-            print(key)
+            print(f"Loading {key} band")
             file_data[key] = {
                 'data': data[key],
                 'shape': data[key].shape
             }
-            variable_name = f"{key}_VW_data" # Create a variable name using the key
+            variable_name = f"{key}" # Create a variable name using the key
             video_watching_dataset[variable_name] = file_data[key]['data'] # Store data in the dictionary using the variable name as the key
 
         video_watching_files[file] = file_data
